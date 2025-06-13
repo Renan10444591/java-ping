@@ -1,4 +1,4 @@
-name: continuos integration
+name: Continuous Integration
 
 on:
   push:
@@ -12,17 +12,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Set up JDK 21
-      uses: actions/setup-java@v4
-      with:
-        java-version: '21'
-        distribution: 'temurin'
-        cache: maven
-    - name: Executando testes unitarios
-      run: mvn -B package --file pom.xml
-      
-          - name: Build
-            run: make Build
+      - uses: actions/checkout@v4
 
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          cache: maven
 
+      - name: Executando testes unitários
+        run: mvn -B package --file pom.xml
+
+      - name: Build
+        run: make Build

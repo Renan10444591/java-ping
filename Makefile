@@ -1,7 +1,8 @@
-build:	
-	mvn clean
-	mvn package
-test:
-	npm test
-run:
-	mvn spring-boot:run
+build:
+	mvn clean package
+
+c_build: build
+	docker build -t java-ping .
+
+c_run:
+	docker run -it --rm java-ping
